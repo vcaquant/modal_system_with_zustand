@@ -1,4 +1,4 @@
-import { ExempleModal, ExempleModalDescription } from "@/app/ExempleModal";
+import { ExampleModal, ExampleModalDescription } from "@/app/ExampleModal";
 
 export interface ModalDescription {
   name: string;
@@ -22,6 +22,6 @@ const registerModal = (modal: any, description: any) => {
   };
 };
 
-registerModal(ExempleModal, ExempleModalDescription);
+registerModal(ExampleModal, ExampleModalDescription);
 
 export { modals };

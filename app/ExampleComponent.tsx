@@ -6,12 +6,12 @@ import { useModalStore } from "@/src/stores/modal";
 import { useCallback } from "react";
 import { toast } from "sonner";
 
-export const ExempleComponent = () => {
+export const ExampleComponent = () => {
   const { setOpenModal } = useModalStore((state) => state);
 
   const openModal = useCallback(async () => {
     try {
-      await setOpenModal("ExempleModal", true);
+      await setOpenModal("ExampleModal", true);
       toast.success("Modal Resolved");
     } catch (error) {
       toast.error("Modal Rejected");

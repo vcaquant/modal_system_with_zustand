@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExempleComponent } from "./ExempleComponent";
+import { ExampleComponent } from "./ExampleComponent";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -23,7 +23,7 @@ export default function Home() {
           <Image src="/github.svg" alt="github" width={25} height={25} />
           GitHub
         </Link>
-        <ExempleComponent />
+        <ExampleComponent />
       </div>
     </main>
   );

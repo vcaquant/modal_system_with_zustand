@@ -12,15 +12,15 @@ import {
 import { useModalStore } from "@/src/stores/modal";
 import { useCallback } from "react";
 
-const ExempleModal = () => {
+const ExampleModal = () => {
   const [modalStore, setOpenModal] = useModalStore((state) => [
-    state.modals.ExempleModal,
+    state.modals.ExampleModal,
     state.setOpenModal,
   ]);
 
   const close = useCallback(() => {
     if (modalStore.open) {
-      setOpenModal("ExempleModal", false);
+      setOpenModal("ExampleModal", false);
     }
   }, [modalStore, setOpenModal]);
 
@@ -39,7 +39,7 @@ const ExempleModal = () => {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="flex justify-between">
-            Exemple Modal
+            Example Modal
           </DialogTitle>
           <DialogDescription>It&apos;s a Promise Modal</DialogDescription>
         </DialogHeader>
@@ -55,9 +55,9 @@ const ExempleModal = () => {
 };
 
 const modalDescription = {
-  name: "ExempleModal",
+  name: "ExampleModal",
   isPromiseBased: true,
   defaultProps: {},
 };
 
-export { ExempleModal, modalDescription as ExempleModalDescription };
+export { ExampleModal, modalDescription as ExampleModalDescription };
