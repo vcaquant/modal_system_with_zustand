@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ModalsContainer } from "@/components/modals/ModalsContainer";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
+import { Header } from "@/src/features/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-screen max-h-screen overflow-hidden">
+      <body className={cn(inter.className, "h-full")}>
+        <Toaster />
+        <ModalsContainer />
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
