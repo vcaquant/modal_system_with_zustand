@@ -250,7 +250,7 @@ export const ModalsContainer = (props: any) => {
 
 ### Step 4: Create your modals
 
-Your ready to create your modals! I'm using eg.[shadcn/ui](https://ui.shadcn.com/docs/installation) eg.[Dialog](https://ui.shadcn.com/docs/components/dialog)
+Your ready to create your modals! I'm using [shadcn/ui](https://ui.shadcn.com/docs/installation) [Dialog](https://ui.shadcn.com/docs/components/dialog)
 
 ```tsx
 "use client";
