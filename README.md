@@ -209,7 +209,7 @@ export { modals };
 
 ### Step 3: Create Modals Container
 
-Create in the same folder as modalsDescriber: `ModalsContainer.tsx`:
+Create in the same folder as modalsDescriber: `ModalsContainer.tsx` and add `<ModalsContainer />` in your `Providers`
 
 ```tsx
 // components/modals/ModalsContainer.tsx
@@ -333,7 +333,7 @@ const openModal = useCallback(async () => {
 
 For the try/catch you have to set isPromised to true in modalDescription in your modal file.
 
-### Step 4: Run your app
+### Step 5: Run your app
 
 ```bash
 npm run dev
