@@ -207,6 +207,13 @@ registerModal(ExampleModal, ExampleModalDescription);
 export { modals };
 ```
 
+In this file you have to register your modals with:
+
+```ts
+registerModal(ExampleModal, ExampleModalDescription);
+```
+
+
 ### Step 3: Create Modals Container
 
 Create in the same folder as modalsDescriber: `ModalsContainer.tsx` and add `<ModalsContainer />` in your `Providers`
