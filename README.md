@@ -258,6 +258,8 @@ export const ModalsContainer = (props: any) => {
 ### Step 4: Create your modals
 
 Your ready to create your modals! I'm using [shadcn/ui](https://ui.shadcn.com/docs/installation) [Dialog](https://ui.shadcn.com/docs/components/dialog)
+> [!IMPORTANT]
+> Don't forget to register your modal in `modalsDescriber.ts` !
 
 ```tsx
 "use client";
@@ -338,7 +340,8 @@ const openModal = useCallback(async () => {
 }, [setOpenModal]);
 ```
 
-For the try/catch you have to set isPromised to true in modalDescription in your modal file.
+> [!NOTE]
+> For the try/catch you have to set isPromised to true in modalDescription in your modal file.
 
 ### Step 5: Run your app
 
