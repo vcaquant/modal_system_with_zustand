@@ -5,6 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function isObjectEmpty(obj: Object) {
+export function isObjectEmpty(obj: object) {
   return Object.keys(obj).length === 0;
 }

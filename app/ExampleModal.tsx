@@ -1,5 +1,7 @@
 "use client";
 
+import { useCallback } from "react";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,7 +12,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useModalStore } from "@/src/stores/modal";
-import { useCallback } from "react";
 
 const ExampleModal = () => {
   const [modalStore, setOpenModal] = useModalStore((state) => [

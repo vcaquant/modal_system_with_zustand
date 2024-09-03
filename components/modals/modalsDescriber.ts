@@ -7,7 +7,7 @@ export interface ModalDescription {
   component: React.FC<any>;
 }
 
-let modals: { [name: string]: ModalDescription } = {};
+const modals: { [name: string]: ModalDescription } = {};
 
 const registerModal = (modal: any, description: any) => {
   const desc = description;

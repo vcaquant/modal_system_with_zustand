@@ -1,14 +1,16 @@
 import Image from "next/image";
-import { ExampleComponent } from "./ExampleComponent";
-import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+import { ExampleComponent } from "./ExampleComponent";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between p-8">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm flex flex-col gap-4">
-        <h1 className="text-2xl font-bold text-center">
+      <div className="z-10 flex w-full max-w-5xl flex-col items-center justify-between gap-4 font-mono text-sm">
+        <h1 className="text-center text-2xl font-bold">
           Modal System with Zustand
         </h1>
         <p className="text-center">

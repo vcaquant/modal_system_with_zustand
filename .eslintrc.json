@@ -1,3 +1,51 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "ignorePatterns": [
+    "dist",
+    ".eslintrc",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "next.config.js"
+  ],
+  "plugins": ["@typescript-eslint", "import"],
+  "rules": {
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "react/no-unescaped-entities": 0,
+    "tailwindcss/no-custom-classname": 0,
+    "@typescript-eslint/no-empty-object-type": 0,
+    "no-extra-boolean-cast": 0,
+    "@next/next/no-img-element": 0,
+    "@typescript-eslint/no-explicit-any": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }

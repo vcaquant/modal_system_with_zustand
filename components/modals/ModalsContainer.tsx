@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
-import { modals as modalsDescriber } from "./modalsDescriber";
-import { useModalStore } from "@/src/stores/modal";
-import { isObjectEmpty } from "@/lib/utils";
 
-export const ModalsContainer = (props: any) => {
+import { isObjectEmpty } from "@/lib/utils";
+import { useModalStore } from "@/src/stores/modal";
+
+import { modals as modalsDescriber } from "./modalsDescriber";
+
+export const ModalsContainer = () => {
   const [modals, setModals] = useModalStore((state) => [
     state.modals,
     state.setModals,
@@ -17,7 +19,7 @@ export const ModalsContainer = (props: any) => {
 
   return (
     <React.Fragment>
-      {Object.entries(modals).map(([name, { open, ...otherProps }]) => {
+      {Object.entries(modals).map(([name, { open }]) => {
         if (!open) return null;
 
         const modalTmp = modalsDescriber[name];

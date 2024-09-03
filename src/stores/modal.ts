@@ -1,5 +1,7 @@
+/* eslint-disable no-fallthrough */
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
+
 import { modals } from "@/components/modals/modalsDescriber";
 
 type Store = {
@@ -9,7 +11,7 @@ type Store = {
     modalName: string,
     open: boolean,
     modalState?: any
-  ) => Promise<unknown>;
+  ) => Promise<unknown> | undefined;
   setResetModal: (modalName: string) => void;
   setModals: () => void;
 };
@@ -18,9 +20,9 @@ export type Modals = {
   [key: string]: {
     open: boolean;
     modalName: string;
-    component: React.FC<any>;
+    component: React.FC;
     resolve: (value?: unknown) => void;
-    reject: (reason?: any) => void;
+    reject: (reason?: unknown) => void;
     state: any;
   };
 };
