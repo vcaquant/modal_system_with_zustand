@@ -1,5 +1,7 @@
 ## Modal system with Zustand Setup
 
+README not up to date
+
 ### Prerequisites
 
 Ensure you have zustand. If not, install it:
