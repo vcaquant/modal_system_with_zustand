@@ -7,7 +7,6 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:react/recommended",
-    "plugin:tailwindcss/recommended",
     "prettier",
     "next/core-web-vitals"
   ],
@@ -37,7 +36,6 @@
       }
     ],
     "react/no-unescaped-entities": 0,
-    "tailwindcss/no-custom-classname": 0,
     "@typescript-eslint/no-empty-object-type": 0,
     "no-extra-boolean-cast": 0,
     "@next/next/no-img-element": 0,

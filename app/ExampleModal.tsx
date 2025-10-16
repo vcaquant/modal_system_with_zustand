@@ -14,10 +14,8 @@ import {
 import { useModalStore } from "@/src/stores/modal";
 
 const ExampleModal = () => {
-  const [modalStore, setOpenModal] = useModalStore((state) => [
-    state.modals.ExampleModal,
-    state.setOpenModal,
-  ]);
+  const modalStore = useModalStore(({ modals }) => modals.ExampleModal);
+  const setOpenModal = useModalStore(({ setOpenModal }) => setOpenModal);
 
   const close = useCallback(() => {
     if (modalStore.open) {
@@ -45,10 +43,16 @@ const ExampleModal = () => {
           <DialogDescription>It&apos;s a Promise Modal</DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant={"secondary"} onClick={reject}>
+          <Button
+            variant={"secondary"}
+            className="cursor-pointer"
+            onClick={reject}
+          >
             Reject
           </Button>
-          <Button onClick={resolve}>Resolve</Button>
+          <Button className="cursor-pointer" onClick={resolve}>
+            Resolve
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -42,8 +42,9 @@ export const useModalStore = create<Store>()(
       switch (true) {
         case !open:
           set((state) => {
-            const currentModalsOpen = (state.currentModalsOpen =
-              state.currentModalsOpen.filter((modal) => modal !== modalName));
+            const currentModalsOpen = state.currentModalsOpen.filter(
+              (modal) => modal !== modalName
+            );
 
             return {
               currentModalsOpen: currentModalsOpen,
@@ -59,47 +60,56 @@ export const useModalStore = create<Store>()(
           });
         case !promiseBased:
           set((state) => {
-            const currentModalsOpen = state.currentModalsOpen;
-            const storeModals = state.modals;
+            const currentModalsOpen =
+              open && !state.currentModalsOpen.includes(modalName)
+                ? [...state.currentModalsOpen, modalName]
+                : state.currentModalsOpen;
 
-            storeModals[modalName].open = open;
-            if (open && !currentModalsOpen.includes(modalName)) {
-              currentModalsOpen.push(modalName);
-              storeModals[modalName].state = defaultProps;
-            }
+            const modalsUpdate = {
+              ...state.modals,
+              [modalName]: {
+                ...state.modals[modalName],
+                open: open,
+                state: open ? defaultProps : state.modals[modalName].state,
+              },
+            };
 
             return {
               currentModalsOpen: currentModalsOpen,
-              modals: storeModals,
+              modals: modalsUpdate,
             };
           });
         default:
           return new Promise((resolve, reject) => {
             set((state) => {
-              const currentModalsOpen = state.currentModalsOpen;
-              const storeModals = state.modals;
+              const existingModal = state.modals[modalName];
+              const modalToUpdate = existingModal || {
+                open: false,
+                modalName: modalName,
+                component: modalDescription.component,
+                state: {},
+                resolve: () => {},
+                reject: () => {},
+              };
 
-              if (!storeModals[modalName]) {
-                storeModals[modalName] = {
-                  open: false,
-                  modalName: modalName,
-                  component: modalDescription.component,
-                  state: {},
-                  resolve: () => {},
-                  reject: () => {},
-                };
-              }
+              const currentModalsOpen =
+                open && !state.currentModalsOpen.includes(modalName)
+                  ? [...state.currentModalsOpen, modalName]
+                  : state.currentModalsOpen;
 
-              storeModals[modalName].open = open;
-              storeModals[modalName].resolve = resolve;
-              storeModals[modalName].reject = reject;
-              if (open && !currentModalsOpen.includes(modalName)) {
-                currentModalsOpen.push(modalName);
-                storeModals[modalName].state = defaultProps;
-              }
+              const modalsUpdate = {
+                ...state.modals,
+                [modalName]: {
+                  ...modalToUpdate,
+                  open: open,
+                  resolve: resolve,
+                  reject: reject,
+                  state: open ? defaultProps : modalToUpdate.state,
+                },
+              };
 
               return {
-                modals: storeModals,
+                modals: modalsUpdate,
                 currentModalsOpen: currentModalsOpen,
               };
             });
@@ -111,12 +121,18 @@ export const useModalStore = create<Store>()(
         const currentModalsOpen = state.currentModalsOpen.filter(
           (modal) => modal !== modalName
         );
-        const storeModals = state.modals;
-        storeModals[modalName].open = false;
-        storeModals[modalName].state = {};
+
+        const modalsUpdate = {
+          ...state.modals,
+          [modalName]: {
+            ...state.modals[modalName],
+            open: false,
+            state: {},
+          },
+        };
 
         return {
-          modals: storeModals,
+          modals: modalsUpdate,
           currentModalsOpen: currentModalsOpen,
         };
       }),

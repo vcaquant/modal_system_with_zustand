@@ -8,10 +8,8 @@ import { useModalStore } from "@/src/stores/modal";
 import { modals as modalsDescriber } from "./modalsDescriber";
 
 export const ModalsContainer = () => {
-  const [modals, setModals] = useModalStore((state) => [
-    state.modals,
-    state.setModals,
-  ]);
+  const modals = useModalStore(({ modals }) => modals);
+  const setModals = useModalStore(({ setModals }) => setModals);
 
   if (isObjectEmpty(modals)) {
     setModals();
