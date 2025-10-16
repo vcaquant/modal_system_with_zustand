@@ -14,7 +14,7 @@ export const ExampleComponent = () => {
     try {
       await setOpenModal("ExampleModal", true);
       toast.success("Modal Resolved");
-    } catch (_) {
+    } catch {
       toast.error("Modal Rejected");
     }
   }, [setOpenModal]);
