@@ -8,14 +8,13 @@ import { Card } from "@/components/ui/card";
 import { useModalStore } from "@/src/stores/modal";
 
 export const ExampleComponent = () => {
-  const { setOpenModal } = useModalStore((state) => state);
+  const setOpenModal = useModalStore(({ setOpenModal }) => setOpenModal);
 
   const openModal = useCallback(async () => {
     try {
       await setOpenModal("ExampleModal", true);
       toast.success("Modal Resolved");
-    } catch (error) {
-      console.error(error);
+    } catch (_) {
       toast.error("Modal Rejected");
     }
   }, [setOpenModal]);
@@ -25,7 +24,7 @@ export const ExampleComponent = () => {
       <Card className="flex w-full max-w-xl flex-col items-center p-20">
         <Button
           onClick={openModal}
-          className="rounded bg-primary p-4 text-white"
+          className="rounded bg-primary p-4 text-white cursor-pointer"
         >
           Open Modal
         </Button>
