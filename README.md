@@ -1,6 +1,6 @@
 ## Modal system with Zustand Setup
 
-README not up to date
+README not up to date please check files too
 
 ### Prerequisites
 
